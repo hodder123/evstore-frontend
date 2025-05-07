@@ -25,15 +25,15 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Upload build to server
-        uses: easingthemes/ssh-deploy@v4.1.9
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          SOURCE: .next
-          TARGET: /var/www/evstore-frontend/.next
-          ARGS: "-r"
+ - name: Upload build to server
+  uses: easingthemes/ssh-deploy@v4.1.9
+  with:
+    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    REMOTE_HOST: ${{ secrets.HOST }}
+    REMOTE_USER: ${{ secrets.USERNAME }}
+    SOURCE: .next
+    TARGET: /var/www/evstore-frontend/.next
+    ARGS: "-r"
 
       - name: Restart PM2
         uses: appleboy/ssh-action@v1.0.0
