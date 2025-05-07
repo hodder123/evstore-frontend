@@ -34,17 +34,16 @@ jobs:
           script: |
             rm -rf /var/www/evstore-frontend
             mkdir -p /var/www/evstore-frontend
-            exit
 
-- name: Upload build to server
-  uses: easingthemes/ssh-deploy@v4.1.9
-  with:
-    sshPrivateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-    remoteHost: ${{ secrets.HOST }}
-    remoteUser: ${{ secrets.USERNAME }}
-    source: .next
-    target: /var/www/evstore-frontend
-    args: "-r"
+      - name: Upload build to server
+        uses: easingthemes/ssh-deploy@v4.1.9
+        with:
+          sshPrivateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          remoteHost: ${{ secrets.HOST }}
+          remoteUser: ${{ secrets.USERNAME }}
+          source: .next
+          target: /var/www/evstore-frontend
+          args: "-r"
 
       - name: Restart PM2
         uses: appleboy/ssh-action@v1.0.0
