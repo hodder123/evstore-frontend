@@ -24,6 +24,14 @@ export default function Home() {
         </button>
       </section>
 
+{/* Font Test Section */}
+<section className="space-y-4 p-10 text-center">
+  <h1 className="text-4xl font-geist">This is Geist</h1>
+  <h1 className="text-4xl font-mono">This is Geist Mono</h1>
+  <h1 className="text-4xl font-arapey">This is Arapey</h1>
+</section>
+
+
       {/* Category Section (Static for now) */}
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-6">
         {["Battery", "Brakes", "Interior", "Exterior"].map((cat) => (
