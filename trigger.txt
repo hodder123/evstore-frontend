@@ -1,1 +1,2 @@
 // confirm ssh auth works
+// trigger after fixing authorized_keys
